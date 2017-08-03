@@ -1,0 +1,15 @@
+language: python
+
+script:
+  - echo OK
+
+deploy:
+  provider: pypi
+  user: watermark
+  password:
+    secure: NqKT0zcpJRwlzm2Sbd1vU2G0amW+cHQbzy08xPJoQx7MrqmuuximG90RhV2cwQpzBw3uyN4qbUPm2IURIgxyiyq4GvhXWRqFJVaZ2zXF1NHNPZzCkK1x+IHX+rBy4IQbKG2DSApetji3LPZFwZKIe4mk5aTvG0I81TIRurCEUhyNCr3tn6ombWs2byMTVFqQ8hDd1hv+o7f4mQmjcqsVMmApZ+uJ8Ke0ABGSBLwOf0zsDFHC9wyaXI4Q20Vhm25cq6LbhkqAtXwX4s1N+CnUK+zbeSxxt78bBGMbuNGL8uXrz/S0vj36ds54vXxtjQFFkcSecj9w3xOqkRoq2R9C8gSGvwD8yCXE9RLLC7KjVCzkJFhCHNl4THdn72MU8kKEwqv+4pWXkx6nqTNvv1N4oWmxNAFEus2/nW0yB4m3bQcqr44DL1jBwnN3eoeEcMBOFzDCIhnZa87JbjZzUy0HmRVjFJBx7rTmAX6BaWQPzYkxpaajDygGeAN9c4bVYlr6ewkuWchd1geS9Wy2sHcPxDKpb3Cy7MXS7mjjlu2qYCZAUDDYlpg22n4YkSM2BzjfOCq4eIwDJUElhyzatqkvhj01Lwveo0itC30HjYr2Dm5qNT+4cnN6JiB7xO62mDxA40EZIFz7q63vdi/h0NH4ZVTKxiot+LdoAKbuW1YpaH8=
+  server: https://pypi.xiachufang.com
+  distributions: sdist bdist_wheel
+  on:
+    tags: true
+    repo: xiachufang/watermark

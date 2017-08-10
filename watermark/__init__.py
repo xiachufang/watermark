@@ -33,11 +33,11 @@ def add_chu_studio_watermark(f, user_name, std_weight=None, std_height=None):
     offset = 177
     # 黑白水印 icon
     watermark = {
-        'white': Image.open(path.join(_PREFIX, 'water-white.png')),
-        'black': Image.open(path.join(_PREFIX, 'water-black.png'))
+        'white': Image.open(path.join(_PREFIX, 'static/water-white.png')),
+        'black': Image.open(path.join(_PREFIX, 'static/water-black.png'))
     }
     # 加载字体
-    font40 = ImageFont.truetype(path.join(_PREFIX, 'SourceHanSansCN-Heavy.otf'), size=40)
+    font40 = ImageFont.truetype(path.join(_PREFIX, 'static/SourceHanSansCN-Heavy.otf'), size=40)
     mw = mh = 81
 
     img = image

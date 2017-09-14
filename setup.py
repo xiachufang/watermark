@@ -14,7 +14,7 @@ with io.open(path.join(here, 'README.md'), encoding='utf-8') as f:
 setup(
     name='xiachufang-watermark',
 
-    version='0.0.3',
+    version='0.0.4',
 
     description='xcf watermark tools',
     long_description=long_description,

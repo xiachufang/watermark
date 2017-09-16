@@ -13,10 +13,6 @@ class PicSizeInvalid(Exception):
     pass
 
 
-class RGBAModelRequired(Exception):
-    pass
-
-
 def add_chu_studio_watermark(f, user_name, std_weight=None, std_height=None):
     '''watermark tool for chu_studio
     :param f: file name or a file object
@@ -27,9 +23,6 @@ def add_chu_studio_watermark(f, user_name, std_weight=None, std_height=None):
     :exception PicSizeInvalid: if original img does not match expect width and height
     '''
     image = Image.open(f)
-
-    if image.mode != 'RGBA':
-        raise RGBAModelRequired()
 
     w, h = image.size
     if std_weight and std_height:

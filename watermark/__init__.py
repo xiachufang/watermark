@@ -52,9 +52,9 @@ def add_chu_studio_watermark(f, user_name, std_weight=None, std_height=None):
     area_rgba = area.histogram()
 
     rs, gs, bs = area_rgba[:256], area_rgba[256:512], area_rgba[512:768]
-    r = sum([i * x for i, x in enumerate(rs)]) / sum(rs)
-    g = sum([i * x for i, x in enumerate(gs)]) / sum(gs)
-    b = sum([i * x for i, x in enumerate(bs)]) / sum(bs)
+    r = sum(rs) and sum([i * x for i, x in enumerate(rs)]) / sum(rs) or 0
+    g = sum(gs) and sum([i * x for i, x in enumerate(gs)]) / sum(gs) or 0
+    b = sum(bs) and sum([i * x for i, x in enumerate(bs)]) / sum(bs) or 0
 
     # 用 YIQ 确定水印颜色
     # https://24ways.org/2010/calculating-color-contrast/

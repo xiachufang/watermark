@@ -9,10 +9,6 @@ from PIL import Image, ImageDraw, ImageFont
 _PREFIX = path.abspath(path.dirname(__file__))
 
 
-class PicSizeInvalid(Exception):
-    pass
-
-
 def add_chu_studio_watermark(f, user_name, std_weight=None, std_height=None):
     '''watermark tool for chu_studio
     :param f: file name or a file object
@@ -20,14 +16,14 @@ def add_chu_studio_watermark(f, user_name, std_weight=None, std_height=None):
     :param std_weight: expect img width
     :param std_height: expect img height
     :returns: string value of new img
-    :exception PicSizeInvalid: if original img does not match expect width and height
+    :exception : ValueError if original img does not match expect width and height
     '''
     image = Image.open(f)
 
     w, h = image.size
     if std_weight and std_height:
         if w != std_weight or h != std_height:
-            raise PicSizeInvalid()
+            raise ValueError()
 
     # 水印水平中线距图片底边的偏移量
     offset = 177
@@ -40,7 +36,11 @@ def add_chu_studio_watermark(f, user_name, std_weight=None, std_height=None):
     font40 = ImageFont.truetype(path.join(_PREFIX, 'static/SourceHanSansCN-Heavy.otf'), size=40)
     mw = mh = 81
 
-    img = image
+    # 确保图片模式为 RGB，大小与原图一致
+    img = Image.new("RGB", image.size)
+
+    # 粘贴原图
+    img.paste(image, (0, 0))
 
     # 初始化 Draw 对象
     draw = ImageDraw.Draw(img)

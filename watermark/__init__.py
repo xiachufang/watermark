@@ -1,6 +1,6 @@
 # coding: utf-8
 
-import cStringIO
+from io import BytesIO
 
 from os import path
 from PIL import Image, ImageDraw, ImageFont
@@ -62,8 +62,8 @@ def add_chu_studio_watermark(f, user_name, std_weight=None, std_height=None):
     color = 'black' if yiq >= 128 else 'white'
 
     draw.text(((w - mw - tw) / 2.0 + mw, h - offset - th / 2), user_name, fill=color, font=font40)
-    img.paste(watermark[color], ((w - mw - tw) / 2, h - offset - mh / 2), mask=watermark[color])
+    img.paste(watermark[color], (int((w - mw - tw) / 2), h - offset - int(mh / 2)), mask=watermark[color])
 
-    new_file = cStringIO.StringIO()
+    new_file = BytesIO()
     img.save(new_file, image.format, quality=100)
     return new_file.getvalue()

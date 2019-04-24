@@ -14,7 +14,7 @@ with io.open(path.join(here, 'README.md'), encoding='utf-8') as f:
 setup(
     name='xiachufang-watermark',
 
-    version='0.0.6',
+    version='0.0.7',
 
     description='xcf watermark tools',
     long_description=long_description,
@@ -32,6 +32,7 @@ setup(
         'License :: OSI Approved :: MIT License',
         'Natural Language :: Chinese (Simplified)',
         'Programming Language :: Python :: 2.7',
+        'Programming Language :: Python :: 3.6',
     ],
     install_requires=['pillow'],
     include_package_data=True
